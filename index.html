@@ -687,13 +687,17 @@ body.effects-on:not(.custom-cursor) #cursor-ambient { display:none !important; }
 /* Um período = largura do triângulo + espaço livre entre triângulos.
    O gradiente desenha a geometria diretamente, sem redimensionar SVGs. */
 .triangle-strip {
-  --triangle-width: 30px;
-  --triangle-height: 36px;
+  --triangle-width: 45px;
+  --triangle-height: 54px;
   --triangle-gap: 32px;
   --triangle-color: #F4262F;
+  --triangle-outline-color: #000000;
+  --triangle-outline: 2px;
   --triangle-duration: 0.7s;
   --triangle-period: calc(var(--triangle-width) + var(--triangle-gap));
   --triangle-angle: atan2(calc(var(--triangle-width) / 2), var(--triangle-height));
+  /* Inset perpendicular de 2 px: mantém as arestas internas paralelas. */
+  --triangle-inner-height: calc(var(--triangle-height) - var(--triangle-outline) - var(--triangle-outline) / sin(var(--triangle-angle)));
   position: absolute;
   left: 0;
   right: 0;
@@ -706,10 +710,28 @@ body.effects-on:not(.custom-cursor) #cursor-ambient { display:none !important; }
 }
 .triangle-strip--top {
   top: 0;
-  background-image: conic-gradient(from calc(-1 * var(--triangle-angle)) at 50% 100%, var(--triangle-color) 0deg calc(2 * var(--triangle-angle)), transparent 0deg);
+  background-image: conic-gradient(from calc(-1 * var(--triangle-angle)) at 50% 100%, var(--triangle-outline-color) 0deg calc(2 * var(--triangle-angle)), transparent 0deg);
 }
 .triangle-strip--bottom {
   bottom: 0;
+  background-image: conic-gradient(from calc(180deg - var(--triangle-angle)) at 50% 0%, var(--triangle-outline-color) 0deg calc(2 * var(--triangle-angle)), transparent 0deg);
+}
+.triangle-strip::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--triangle-inner-height);
+  background-repeat: repeat-x;
+  background-size: var(--triangle-period) var(--triangle-inner-height);
+  background-position: 0 0;
+}
+.triangle-strip--top::before {
+  top: var(--triangle-outline);
+  background-image: conic-gradient(from calc(-1 * var(--triangle-angle)) at 50% 100%, var(--triangle-color) 0deg calc(2 * var(--triangle-angle)), transparent 0deg);
+}
+.triangle-strip--bottom::before {
+  bottom: var(--triangle-outline);
   background-image: conic-gradient(from calc(180deg - var(--triangle-angle)) at 50% 0%, var(--triangle-color) 0deg calc(2 * var(--triangle-angle)), transparent 0deg);
 }
 @keyframes triangle-flow {
@@ -718,7 +740,8 @@ body.effects-on:not(.custom-cursor) #cursor-ambient { display:none !important; }
 }
 /* O botão do site permite movimento mesmo com redução solicitada pelo SO.
    Estas duas propriedades importantes são necessárias pela regra global. */
-body.effects-on .triangle-strip {
+body.effects-on .triangle-strip,
+body.effects-on .triangle-strip::before {
   animation-name: triangle-flow;
   animation-duration: var(--triangle-duration) !important;
   animation-iteration-count: infinite !important;
@@ -726,7 +749,12 @@ body.effects-on .triangle-strip {
   animation-play-state: running;
   will-change: background-position;
 }
-body.effects-off .triangle-strip {
+/* Fileiras em sentidos opostos; preenchimento e contorno sempre sincronizados. */
+.triangle-strip--bottom, .triangle-strip--bottom::before {
+  animation-direction: reverse;
+}
+body.effects-off .triangle-strip,
+body.effects-off .triangle-strip::before {
   animation-name: none;
   will-change: auto;
 }
