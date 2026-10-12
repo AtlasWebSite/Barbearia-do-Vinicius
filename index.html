@@ -212,12 +212,12 @@ a, button, summary, .official-media, .review { -webkit-tap-highlight-color:trans
 .hero-has-photo::after { width:auto; height:auto; inset:0; top:auto; left:auto; content:""; position:absolute; z-index:1; pointer-events:none; background:linear-gradient(180deg,#13141230 8%,transparent 44%,#10110eee 100%); }
 .hero-has-photo .art-dots,.hero-has-photo .art-orbit,.hero-has-photo .art-side-label {display:none;}
 .hero-has-photo .art-overline,.hero-has-photo .art-bottom,.hero-has-photo .art-corner{z-index:3; text-shadow:0 2px 7px #0009;}
-.illustration-label { position:absolute; bottom:18%; left:12%; right:12%; z-index:4; color:#e9e1d6; background:rgba(24,24,21,.78); border-left:2px solid var(--gold); padding:8px 11px; font:700 18px/1.4 Manrope, sans-serif; letter-spacing:.11em; width:fit-content; max-width:76%; }
-.photo-showcase { grid-template-columns:.92fr 1.12fr .92fr; min-height:515px; gap:12px; }
+
+.photo-showcase { grid-template-columns:repeat(3,minmax(0,1fr)); min-height:515px; gap:12px; }
 .photo-tile { position:relative; min-height:515px; background:linear-gradient(130deg,#3f3a32,#161714); overflow:hidden; isolation:isolate; color:#f4eee2; }
 .photo-tile>img {width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;filter:saturate(.6);transition:transform .7s cubic-bezier(.22,1,.36,1),filter .7s;}
 .photo-tile:hover>img {transform:scale(1.055);filter:saturate(.92)}
-.photo-tile::after { content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1114 0%,transparent 35%,#10110ce8 100%);pointer-events:none;z-index:1; }
+.photo-tile::after { content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,transparent 45%,rgba(0,0,0,.12) 100%);pointer-events:none;z-index:1; }
 .photo-topline,.photo-bottomline{position:absolute;z-index:2;left:20px;right:20px;}
 .photo-topline{top:20px;font:800 18px Manrope,sans-serif;letter-spacing:.13em;}
 .photo-bottomline{bottom:20px;display:flex;justify-content:space-between;align-items:end;gap:8px;font:800 18px/1.5 Manrope,sans-serif;letter-spacing:.1em;}
@@ -256,8 +256,8 @@ a,button,summary{isolation:isolate;}
 .footer a,.nav-link,.underlined-link,.micro-link,.text-arrow-link,.official-media-link,.strip-phone{overflow:visible;}
 .footer a .click-ripple,.nav-link .click-ripple,.underlined-link .click-ripple,.micro-link .click-ripple,.text-arrow-link .click-ripple{width:10px;height:10px;}
 main section[id]{scroll-margin-top:100px;}
-@media(max-width:940px){.photo-showcase{grid-template-columns:1fr 1fr;}.photo-showcase .insta-visible{grid-column:span 2;grid-row:1}.photo-tile{min-height:310px}.insta-visible{min-height:500px}}
-@media(max-width:700px){.illustration-label{left:9%;bottom:19%;font-size:18px}.photo-showcase{grid-template-columns:1fr 1fr}.photo-showcase .insta-visible{grid-column:1/-1}.photo-tile{min-height:310px}.photo-topline,.photo-bottomline{left:12px;right:12px}.photo-bottomline{font-size:18px}.google-photos-pill{font-size:18px;padding:9px 7px}.marquee-band{height:50px}}
+@media(max-width:940px){.photo-showcase{grid-template-columns:repeat(3,minmax(0,1fr));}.photo-showcase .insta-visible{grid-column:span 2;grid-row:1}.photo-tile{min-height:310px}.insta-visible{min-height:500px}}
+@media(max-width:700px){.photo-showcase{grid-template-columns:minmax(0,1fr)}.photo-showcase .insta-visible{grid-column:1/-1}.photo-tile{min-height:310px}.photo-topline,.photo-bottomline{left:12px;right:12px}.photo-bottomline{font-size:18px}.google-photos-pill{font-size:18px;padding:9px 7px}.marquee-band{height:50px}}
 @media(max-width:420px){.photo-showcase{grid-template-columns:1fr}.photo-showcase .insta-visible{grid-column:1}.photo-tile{min-height:370px}.insta-visible .instagram-frame-wrap,.insta-visible .instagram-embed{min-height:420px}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none!important}.cursor-reticle,.cursor-ambient{display:none!important}.photo-tile img{transition:none}.click-ripple{display:none!important}}
 
@@ -403,7 +403,7 @@ button,input,select,textarea{font-family:var(--font-body)}
 .art-overline,.art-bottom,.art-side-label{position:relative;z-index:3;color:var(--color-white)}.art-overline,.art-bottom{width:76%;min-width:0}
 .art-overline span,.art-bottom i,.art-v span{color:var(--color-accent)}
 .art-v{font-family:var(--font-display);color:var(--color-white);text-shadow:var(--shadow-heading-lg)}
-.illustration-label{background:var(--color-primary);color:var(--color-white);font:700 18px/1.1 var(--font-heading);letter-spacing:.07em;z-index:5}
+
 .hero-separator,.hero-bottom-border{border-color:rgba(255,255,255,.35)}
 .hero-foot .hero-map-pin{color:var(--color-accent)}
 .text-arrow-link{font-family:var(--font-heading);font-size:18px;color:var(--color-white)}
@@ -573,7 +573,7 @@ button,input,select,textarea{font-family:var(--font-body)}
 .hero-art.photo-missing .art-orbit{display:grid!important;opacity:1!important}
 .hero-art.photo-missing .art-v{font:400 clamp(180px,24vw,340px)/1 var(--font-display);color:var(--color-white);text-shadow:var(--shadow-heading-lg)}
 .hero-art.photo-missing .art-v span{color:var(--color-accent)}
-.hero-art.photo-missing .illustration-label{display:none!important}
+
 .hero-art.photo-missing{background:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 54px),var(--color-primary-dark)}
 @media(max-width:700px){.about-section{grid-template-columns:minmax(0,1fr)!important}.about-visual,.about-content{width:100%;min-width:0}.reviews-section .display-heading{overflow-wrap:anywhere}.booking-grid,.booking-copy,.booking-panel{min-width:0}}
 @media(max-width:360px){.top-strip .strip-phone{display:none}.top-strip-inner{justify-content:center}.review-head .display-heading{font-size:39px!important;letter-spacing:.005em}.reviews-section .display-heading{font-size:39px!important}.about-content{padding-left:20px;padding-right:20px}.hero-art.photo-missing .art-v{font-size:180px}}
@@ -861,9 +861,9 @@ body.effects-off .triangle-strip::before {
           <div class="hero-separator"></div>
           <div class="hero-foot"><div class="hero-map-pin" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c-4.01 0-7.25 3.1-7.25 6.94 0 5.05 6.06 11.38 6.32 11.64a1.3 1.3 0 0 0 1.86 0c.26-.26 6.32-6.59 6.32-11.64 0-3.84-3.24-6.94-7.25-6.94Zm0 9.5a2.56 2.56 0 1 1 0-5.12 2.56 2.56 0 0 1 0 5.12Z"/></svg></div><div><b>ÁGUA FRESCA</b><span>ITABIRA, MINAS GERAIS</span></div><span class="hero-foot-end">EST. — / MG</span></div>
         </div>
-        <div class="hero-art hero-has-photo" id="hero-media" aria-label="Fotografia ilustrativa de corte masculino, não é uma foto da Barbearia do Vinícios">
-          <img width="1200" height="900" srcset="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=400&amp;q=75 400w, https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=1200&amp;q=82 1200w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 940px) 45vw, 560px" class="hero-photo" id="hero-photo" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Imagem ilustrativa: profissional aparando um corte masculino" fetchpriority="high" decoding="async" onerror="this.hidden=true;this.closest('.hero-art')?.classList.add('photo-missing')">
-          <span class="illustration-label">FOTO ILUSTRATIVA · SUBSTITUIR POR FOTO DA BARBEARIA</span>
+        <div class="hero-art hero-has-photo" id="hero-media" aria-label="Corte masculino com acabamento na navalha">
+          <img class="hero-photo" id="hero-photo" src="assets/galeria-corte-960.webp" srcset="assets/galeria-corte-480.webp 480w, assets/galeria-corte-960.webp 960w" sizes="(max-width:700px) calc(100vw - 36px), 560px" width="960" height="1320" alt="Corte masculino com acabamento na navalha" fetchpriority="high" decoding="async" onerror="this.hidden=true;this.closest('.hero-art')?.classList.add('photo-missing')">
+          
           <div class="hero-logo-stamp" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-bv.webp" alt="" width="108" height="80"></div>
           <div class="art-dots" aria-hidden="true"></div>
           <div class="art-corner art-corner-tl" aria-hidden="true"></div><div class="art-corner art-corner-br" aria-hidden="true"></div>
@@ -903,28 +903,21 @@ body.effects-off .triangle-strip::before {
     <section class="work-section section-space" id="trabalhos" aria-labelledby="works-title">
       <div class="container">
         <div class="section-intro-row"><span class="eyebrow eyebrow-dark"><span class="section-number">03</span> / PORTFÓLIO</span><a class="micro-link" href="https://www.instagram.com/vinicius_barbearia_/" target="_blank" rel="noopener noreferrer">ACOMPANHAR NO INSTAGRAM <span aria-hidden="true">↗</span></a></div>
-        <div class="works-heading"><h2 class="display-heading" id="works-title">O RESULTADO<br><span>FALA ALTO.</span></h2><p>Veja o reel oficial da barbearia diretamente no site. As outras imagens são ilustrativas até recebermos fotos originais; as fotos reais do Google estão a um clique.</p></div>
-        <div id="work-gallery" class="portfolio-grid media-showcase photo-showcase" aria-live="polite">
-          <article class="photo-tile photo-tile-cut">
-            <img width="1200" height="900" srcset="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=400&amp;q=75 400w, https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=1200&amp;q=82 1200w" sizes="(max-width: 420px) calc(100vw - 36px), (max-width: 940px) 45vw, 420px" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Fotografia ilustrativa de corte masculino. Não é um trabalho da Barbearia do Vinícios." loading="lazy" decoding="async" onerror="this.hidden=true;this.closest('.hero-art')?.classList.add('photo-missing')">
+        <div class="works-heading"><h2 class="display-heading" id="works-title">O RESULTADO<br><span>FALA ALTO.</span></h2><p>Cuidado com cada detalhe, do corte ao acabamento.</p></div>
+        <div id="work-gallery" class="portfolio-grid photo-showcase" aria-label="Galeria de cortes, barba e ambiente">
+          <article class="photo-tile photo-tile-corte">
+            <img src="assets/galeria-corte-960.webp" srcset="assets/galeria-corte-480.webp 480w, assets/galeria-corte-960.webp 960w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:940px) 30vw, 400px" width="960" height="1320" alt="Corte masculino com acabamento na navalha" loading="lazy" decoding="async">
             <span class="photo-topline">01 / ESTILO E PRECISÃO</span>
-            <div class="photo-bottomline"><span>FOTO ILUSTRATIVA<br><small>Para substituir por um corte real da barbearia</small></span><span aria-hidden="true">↗</span></div>
           </article>
-          <article class="official-media official-media-instagram insta-visible">
-            <div class="official-media-top"><span>02 / INSTAGRAM OFICIAL</span><span>CONTEÚDO REAL</span></div>
-            <div class="instagram-frame-wrap">
-              <iframe class="instagram-embed" title="Reel oficial da Barbearia do Vinícios no Instagram" src="https://www.instagram.com/reel/DXHZHLCJYXE/embed/" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
-              <div class="instagram-embed-fallback" aria-label="Acesse a publicação original caso o Instagram não permita a incorporação"><span class="insta-fallback-icon">◎</span><span>PUBLICAÇÃO OFICIAL</span><a data-reel-link href="https://www.instagram.com/reels/DXHZHLCJYXE/" target="_blank" rel="noopener noreferrer">VER DIRETAMENTE NO INSTAGRAM <span aria-hidden="true">↗</span></a></div>
-            </div>
-            <div class="official-media-footer"><span>PUBLICADO NO PERFIL DA BARBEARIA</span><a class="official-media-link" data-reel-link href="https://www.instagram.com/reels/DXHZHLCJYXE/" target="_blank" rel="noopener noreferrer">ABRIR O REEL <span aria-hidden="true">↗</span></a></div>
+          <article class="photo-tile photo-tile-barba">
+            <img src="assets/galeria-barba-960.webp" srcset="assets/galeria-barba-480.webp 480w, assets/galeria-barba-960.webp 960w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:940px) 30vw, 400px" width="960" height="1320" alt="Barbeiro fazendo o acabamento da barba com navalha" loading="lazy" decoding="async">
+            <span class="photo-topline">02 / BARBA E ACABAMENTO</span>
           </article>
-          <article class="photo-tile photo-tile-room">
-            <img width="1200" height="900" srcset="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=400&amp;q=75 400w, https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=1200&amp;q=82 1200w" sizes="(max-width: 420px) calc(100vw - 36px), (max-width: 940px) 45vw, 420px" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Fotografia ilustrativa de interior de barbearia, não representa a Barbearia do Vinícios." loading="lazy" decoding="async" onerror="this.hidden=true;this.closest('.hero-art')?.classList.add('photo-missing')">
+          <article class="photo-tile photo-tile-ambiente">
+            <img src="assets/galeria-ambiente-960.webp" srcset="assets/galeria-ambiente-480.webp 480w, assets/galeria-ambiente-960.webp 960w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:940px) 30vw, 400px" width="960" height="1320" alt="Cadeiras de barbearia diante de espelhos e parede de tijolos" loading="lazy" decoding="async">
             <span class="photo-topline">03 / AMBIENTE</span>
-            <div class="photo-bottomline"><span>FOTO ILUSTRATIVA<br><small>Não é o ambiente da barbearia</small></span><a class="google-photos-pill" data-maps-link href="https://www.google.com/maps/place/Barbearia+do+Vin%C3%ADcios/" target="_blank" rel="noopener noreferrer">FOTOS REAIS NO MAPS ↗</a></div>
           </article>
         </div>
-        <div class="media-source-note"><span class="source-note-mark" aria-hidden="true">✳</span><p>Conteúdo oficial incorporado do Instagram. As fotos do Google podem ser consultadas no perfil do estabelecimento; a exibição depende das plataformas. Imagens não verificadas não são apresentadas como trabalhos da barbearia.</p></div>
       </div>
     </section>
 
@@ -947,15 +940,15 @@ body.effects-off .triangle-strip::before {
     <section class="social-feature" aria-label="Conheça nosso Instagram"><div class="container social-feature-grid"><div class="social-orb social-orb--official" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-bv.webp" width="116" height="85" alt=""></div><div class="social-copy"><span class="eyebrow eyebrow-muted">CONTINUE A CONVERSA</span><h2>O ESTILO NÃO<br>PARA POR AQUI<span>.</span></h2><p>Conheça mais da barbearia e acompanhe as novidades pelo Instagram.</p><a class="button button-gold social-instagram" href="https://www.instagram.com/vinicius_barbearia_/" target="_blank" rel="noopener noreferrer">ACOMPANHE NO INSTAGRAM <span class="button-circle" aria-hidden="true">↗</span></a></div><div class="social-orb social-orb--official social-orb--right" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-bv.webp" width="116" height="85" alt=""></div></div></section>
 
     <section class="booking-section section-space" id="agendar" aria-labelledby="booking-title"><div class="container"><div class="section-intro-row"><span class="eyebrow eyebrow-dark"><span class="section-number">06</span> / SEU PRÓXIMO CORTE</span><span class="micro-overline">RÁPIDO. DIRETO. SEM COMPLICAÇÃO.</span></div>
-      <div class="booking-grid"><div class="booking-copy"><span class="mini-kicker">PODE CHEGAR.</span><h2 class="display-heading" id="booking-title">BORA MARCAR<br><span>ESSE CORTE?</span></h2><p>Preencha suas preferências e prepare uma mensagem para entrar em contato. A data e o horário dependem da confirmação da barbearia.</p><div class="booking-callout"><span class="booking-callout-icon">↗</span><div><b>PREFERE FALAR DIRETO?</b><a href="tel:+5531996354058" id="booking-phone">(31) 99635-4058</a></div></div></div>
+      <div class="booking-grid"><div class="booking-copy"><span class="mini-kicker">PODE CHEGAR.</span><h2 class="display-heading" id="booking-title">BORA MARCAR<br><span>ESSE CORTE?</span></h2><p>Escolha o serviço, a data e o horário de preferência. Envie seu pedido pelo WhatsApp e aguarde a confirmação da barbearia.</p><div class="booking-callout"><span class="booking-callout-icon">↗</span><div><b>PREFERE FALAR DIRETO?</b><a href="tel:+5531996354058" id="booking-phone">(31) 99635-4058</a></div></div></div>
       <div class="booking-panel"><form id="booking-form" novalidate><div class="form-heading"><span>01 / SEU PEDIDO</span><span class="form-asterisk">✳</span></div><div class="form-grid"><div class="field field-full"><label for="booking-name">SEU NOME <span aria-hidden="true">*</span></label><input id="booking-name" name="name" placeholder="Como podemos te chamar?" autocomplete="name" maxlength="80" required><small class="error-msg" id="name-error" aria-live="polite"></small></div><div class="field field-full"><label for="booking-service">SERVIÇO DE INTERESSE</label><select id="booking-service" name="service"><option value="Corte de cabelo">Corte de cabelo</option><option value="Consultar outros serviços">Consultar outros serviços</option></select></div><div class="field"><label for="booking-date">DATA DE PREFERÊNCIA</label><input id="booking-date" type="date" name="date"></div><div class="field"><label for="booking-time">HORÁRIO DE PREFERÊNCIA</label><input id="booking-time" type="time" name="time"></div><div class="field field-full"><label for="booking-notes">OBSERVAÇÕES <span class="optional-label">(OPCIONAL)</span></label><textarea id="booking-notes" name="notes" maxlength="350" rows="3" placeholder="Algum detalhe que queira compartilhar?"></textarea></div></div>
-        <button type="submit" id="booking-submit" class="button button-gold button-block">PREPARAR SOLICITAÇÃO <span class="button-circle" aria-hidden="true">↗</span></button><p class="form-disclaimer">Este formulário não confirma reservas automaticamente. Entraremos em contato apenas pelos canais oficiais.</p></form>
+        <button type="submit" id="booking-submit" class="button button-gold button-block">AGENDAR PELO WHATSAPP <span class="button-circle" aria-hidden="true">↗</span></button><p class="form-disclaimer">Você será direcionado ao WhatsApp com a mensagem pronta. O horário será confirmado pela barbearia.</p></form>
         <div id="booking-result" class="booking-result" hidden aria-live="polite"><div class="result-icon" aria-hidden="true">✓</div><h3>MENSAGEM PRONTA.</h3><p>Copie o texto abaixo e envie ao estabelecimento pelo Instagram ou telefone. O horário ainda precisa ser confirmado.</p><textarea id="booking-message" readonly rows="7" aria-label="Mensagem de solicitação de agendamento"></textarea><div class="result-actions"><button type="button" id="copy-message" class="button button-gold">COPIAR MENSAGEM <span aria-hidden="true">↗</span></button><a id="booking-instagram" href="https://www.instagram.com/vinicius_barbearia_/" class="button button-outline-dark" target="_blank" rel="noopener noreferrer">ABRIR INSTAGRAM <span aria-hidden="true">↗</span></a></div><p id="copy-status" class="copy-status" role="status"></p><button type="button" id="edit-booking" class="simple-action">← EDITAR PREFERÊNCIAS</button></div>
       </div></div></div></section>
 
     <section class="location-section" id="localizacao" aria-labelledby="location-title"><div class="location-info"><div class="location-copy"><span class="eyebrow eyebrow-muted"><span class="section-number">07</span> / ONDE NOS ENCONTRAR</span><span class="mini-kicker">PERTINHO DE VOCÊ</span><h2 class="display-heading light" id="location-title">O SEU LUGAR<br><span>É AQUI.</span></h2><div class="address-detail"><span class="address-symbol">⌖</span><div><span>ENDEREÇO</span><address>Tv. Tab. Valdemar de Alvarenga Lage, 1230<br>Água Fresca, Itabira — MG<br>CEP 35900-443</address></div></div><div class="address-detail"><span class="address-symbol">↗</span><div><span>CONTATO</span><a class="location-phone" href="tel:+5531996354058">(31) 99635-4058</a><span class="location-note">Horário de funcionamento: consulte diretamente.</span></div></div><a class="button button-gold" data-maps-link target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Barbearia+do+Vin%C3%ADcios/">COMO CHEGAR <span class="button-circle" aria-hidden="true">↗</span></a></div></div><div class="map-wrap map-visible" id="map-wrap"><iframe id="map-frame" title="Google Maps: localização da Barbearia do Vinícios no bairro Água Fresca, Itabira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?q=-19.6484857%2C-43.2176202&amp;z=18&amp;output=embed"></iframe><div class="map-overlay-link"><span><span aria-hidden="true">⌖</span> ÁGUA FRESCA / ITABIRA</span><a data-maps-link href="https://www.google.com/maps/place/Barbearia+do+Vin%C3%ADcios/" target="_blank" rel="noopener noreferrer">VER NO GOOGLE MAPS <span aria-hidden="true">↗</span></a></div></div></section>
 
-    <section class="faq-section section-space" id="duvidas"><div class="container faq-grid"><div><span class="eyebrow eyebrow-dark"><span class="section-number">08</span> / DÚVIDAS FREQUENTES</span><h2 class="display-heading faq-heading">A GENTE<br><span>RESPONDE.</span></h2></div><div class="faq-list"><details><summary>Como posso solicitar um horário? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Preencha o formulário de contato nesta página para preparar sua solicitação ou entre em contato pelo telefone. A disponibilidade será confirmada pela barbearia.</p></details><details><summary>Onde fica a barbearia? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Estamos na Travessa Tab. Valdemar de Alvarenga Lage, 1230, bairro Água Fresca, em Itabira, MG. Você pode abrir a rota pela seção de localização.</p></details><details><summary>Como posso consultar preços? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Os valores devem ser consultados diretamente com a barbearia, pelo telefone informado nesta página.</p></details><details><summary>Onde posso acompanhar os trabalhos? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Você pode visitar o <a href="https://www.instagram.com/vinicius_barbearia_/" target="_blank" rel="noopener noreferrer">Instagram oficial</a>. A galeria exibe referências ilustrativas e um reel oficial; fotografias reais da barbearia dependem dos arquivos autorizados.</p></details></div></div></section>
+    <section class="faq-section section-space" id="duvidas"><div class="container faq-grid"><div><span class="eyebrow eyebrow-dark"><span class="section-number">08</span> / DÚVIDAS FREQUENTES</span><h2 class="display-heading faq-heading">A GENTE<br><span>RESPONDE.</span></h2></div><div class="faq-list"><details><summary>Como posso solicitar um horário? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Preencha o formulário e toque em Agendar pelo WhatsApp. A mensagem será aberta com os seus dados, e a barbearia confirmará a disponibilidade.</p></details><details><summary>Onde fica a barbearia? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Estamos na Travessa Tab. Valdemar de Alvarenga Lage, 1230, bairro Água Fresca, em Itabira, MG. Você pode abrir a rota pela seção de localização.</p></details><details><summary>Como posso consultar preços? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Os valores devem ser consultados diretamente com a barbearia, pelo telefone informado nesta página.</p></details><details><summary>Onde posso acompanhar os trabalhos? <span class="faq-plus" aria-hidden="true">+</span></summary><p>Você pode visitar o <a href="https://www.instagram.com/vinicius_barbearia_/" target="_blank" rel="noopener noreferrer">Instagram oficial</a>. Lá você acompanha os cortes, as novidades e o dia a dia da barbearia.</p></details></div></div></section>
 
     <section class="final-cta"><div class="triangle-strip triangle-strip--top" aria-hidden="true"></div><div class="triangle-strip triangle-strip--bottom" aria-hidden="true"></div><div class="container final-cta-inner"><span class="eyebrow eyebrow-muted">AGORA É COM VOCÊ.</span><h2>SEU PRÓXIMO<br>CORTE <em>COMEÇA AQUI.</em></h2><a href="#agendar" class="button button-gold">SOLICITAR HORÁRIO <span class="button-circle" aria-hidden="true">↗</span></a><span class="final-corner" aria-hidden="true">★</span></div></section>
   </main>
@@ -971,8 +964,7 @@ body.effects-off .triangle-strip::before {
 /**
  * Fonte única dos dados públicos da Barbearia do Vinícios.
  * Nunca preencha campos incertos com informações fictícias.
- * Depois de confirmar a utilização de WhatsApp no número oficial,
- * altere whatsappConfirmed para true.
+ * WhatsApp conectado ao número oficial exibido no site.
  * Acrescente apenas fotografias próprias/autorizadas em gallery.
  */
 window.BARBERSHOP = Object.freeze({
@@ -981,7 +973,7 @@ window.BARBERSHOP = Object.freeze({
   slogan: 'Precisão no corte. Personalidade em cada detalhe.',
   phoneDisplay: '(31) 99635-4058',
   phoneE164: '+5531996354058',
-  whatsappConfirmed: false,
+  whatsappConfirmed: true,
   whatsappNumber: '5531996354058',
   addressLine: 'Tv. Tab. Valdemar de Alvarenga Lage, 1230',
   neighborhood: 'Água Fresca',
@@ -1004,9 +996,7 @@ window.BARBERSHOP = Object.freeze({
     { author: 'MATOSO', quote: 'Nota 1000' }
   ],
   media: {
-    // As fotos de referência são imagens ilustrativas da Unsplash (requer internet).
-    // Para fotos REAIS do negócio, insira os arquivos originais/autorizados no site.
-    illustrativeHero: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a",
+    // As fotos de banco da galeria são arquivos locais em assets/.
     hero: null,  // Ex.: 'assets/fotos/hero.webp' (foto real, autorizada)
     interior: null, // Ex.: 'assets/fotos/ambiente.webp'
     gallery: [
@@ -1240,8 +1230,6 @@ window.BARBERSHOP = Object.freeze({
     hero?.classList.remove('photo-missing');
     const heroPhoto = $('#hero-photo');
     if (heroPhoto) { heroPhoto.removeAttribute('srcset'); heroPhoto.removeAttribute('sizes'); heroPhoto.src = config.media.hero; heroPhoto.alt = 'Fotografia oficial da Barbearia do Vinícios'; }
-    const notice = $('.illustration-label');
-    if (notice) notice.hidden = true;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center';
     hero.setAttribute('aria-label', 'Fotografia oficial da Barbearia do Vinícios');
